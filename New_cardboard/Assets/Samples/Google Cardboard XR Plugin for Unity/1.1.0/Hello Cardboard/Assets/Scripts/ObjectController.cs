@@ -48,11 +48,17 @@ public class ObjectController : MonoBehaviour
     /// <summary>
     /// Start is called before the first frame update.
     /// </summary>
+    /// 
+    //Extra
+    [SerializeField] ParticleSystem mi_parti;
+    //Erase 
     public void Start()
     {
         m_StartingPosition = transform.localPosition;
         m_MyRenderer = GetComponent<Renderer>();
         SetMaterial(false);
+        mi_parti.Stop();
+       
     }
 
     /// <summary>
@@ -86,6 +92,7 @@ public class ObjectController : MonoBehaviour
     public void OnPointerEnter()
     {
         SetMaterial(true);
+        mi_parti.Play();
     }
 
     /// <summary>
@@ -94,6 +101,7 @@ public class ObjectController : MonoBehaviour
     public void OnPointerExit()
     {
         SetMaterial(false);
+        mi_parti.Stop();
     }
 
     /// <summary>
